@@ -25,6 +25,19 @@ var LWS = (function() {
         el.classList.toggle(...className);
     }
 
+    /**
+     * URL
+     */
+
+    // Get URL Query String
+    function getUrlQueryString() {
+        var o = {};
+        window.location.href.replace(/[?&]{1,}([^=&]{1,})=([^&]{0,})/gi, function(match, key, value) { 
+          o[key] = value;
+        });
+        return o;
+    }    
+
 
 
         
@@ -37,7 +50,8 @@ var LWS = (function() {
         $$: $$,
         addClass: addClass,
         removeClass: removeClass,
-        toggleClass: toggleClass
+        toggleClass: toggleClass,
+        getUrlQueryString: getUrlQueryString
     }
 
 }) ();
